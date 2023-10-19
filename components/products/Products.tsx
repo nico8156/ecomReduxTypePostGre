@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '@/redux/slice/features/productsSlice'
 import Link from 'next/link'
-import { Product, User } from '@/types/globalTypes'
+import { User } from '@/types/globalTypes'
 
 interface Item {
     brand: string;
@@ -22,7 +22,6 @@ interface Item {
 const Products = ({products}:{products: any}) => {
 
   const userName = useSelector((state: User) => state.rootreducer.user?.currentUser?.username);
-
 
   const dispatch = useDispatch()
 

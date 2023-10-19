@@ -66,7 +66,11 @@ const Login = () => {
         Login
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col mt-5 p-10 border rounded-xl border-green-300 w-1/3'>
-        <label className='mb-2 mt-1 font-bold' htmlFor="email">
+        <label 
+          className='mb-2 mt-1 font-bold' 
+          htmlFor="email"
+          
+          >
           Email:
         </label>
         <input 

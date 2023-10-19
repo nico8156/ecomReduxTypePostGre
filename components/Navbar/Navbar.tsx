@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import LogCartButton from './LogCartButton'
+import LogCartButton from '../LogCartButton'
 import { LogOut } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutUser } from '@/redux/slice/features/userSlice'

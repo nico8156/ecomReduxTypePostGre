@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google'
 
 import { ReduxProvider } from './../redux/reduxProvider'
 
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })

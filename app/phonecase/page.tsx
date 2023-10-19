@@ -1,4 +1,4 @@
-import Products from '@/components/Products';
+import Products from '@/components/products/Products';
 import { getData } from '@/helpers/getProdctsByCategory';
 import { Product } from '@/types/globalTypes';
 import React from 'react'
