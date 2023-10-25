@@ -50,9 +50,7 @@ const Register = () => {
       console.error(error)
       
     }
-    
-    
-
+  
   }
 
   return (
@@ -124,7 +122,7 @@ const Register = () => {
         </button>
       </form>
       <h3 className='mt-2'>Already have an account ... Go <span className='text-orange-600 hover:text-orange-300 duration-200'>
-        <Link href={"/login"}>
+        <Link as={"/login"} href={"/login"}>
           Here
         </Link>
         </span>

@@ -1,13 +1,13 @@
 "use client"
 
 import Link from 'next/link'
-import React from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm } from "react-hook-form"
-
 import { useDispatch } from 'react-redux'
+
 import { AppDispatch } from '@/redux/store'
 import { loginUser } from '@/redux/slice/features/userSlice'
+
 
 type FormData = {
   email: string
@@ -15,7 +15,6 @@ type FormData = {
 }
 
 const Login = () => {
-
   
   const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
@@ -49,8 +48,8 @@ const Login = () => {
 
         if(data){
 
-          const username = data.userByEmail.username;
-          const email = data.userByEmail.email;
+          const username: string = data.userByEmail.username;
+          const email: string = data.userByEmail.email;
           
           dispatch(loginUser({
             username: username,
@@ -109,7 +108,7 @@ const Login = () => {
         </button>
       </form>
       <h3 className='mt-2'>Want to register, it is <span className='text-orange-600  hover:text-orange-300 duration-200'>
-        <Link href={"/register"} >
+        <Link as={"/register"} href={"/register"} >
           Here
         </Link>
         </span>

@@ -24,8 +24,10 @@ describe('Products test', () => {
                 user: initialUser
             }
         })
+        const { getByText } = screen;
         const userElement = screen.getByText(/Add To Cart/i);
         expect(userElement).toBeInTheDocument();
+        expect(getByText('Choose your next Tech-Product here')).toBeInTheDocument();
     })
 })
 

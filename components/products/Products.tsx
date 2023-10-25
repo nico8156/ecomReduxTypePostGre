@@ -19,7 +19,7 @@ interface Item {
     quantity: number;
   }
 
-const Products = ({products}:{products: any}) => {
+const Products = ({products}:{products: Item[]}) => {
 
   const currentUser = useSelector((state: User) => state.rootreducer.user?.currentUser);
   const userName = currentUser?.username;
@@ -32,7 +32,7 @@ const Products = ({products}:{products: any}) => {
         <h1 className='mt-10 text-3xl'>Choose your next Tech-Product here {userName && <span className='text-5xl text-green-300'>{userName}</span>}</h1>
         <div className='max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 py-10'>
         {products.map((item: Item)=>(
-            <div className='w-[270px] border-[1px] border-gray-400 rounded-md overflow-hidden hover:border-gray-800 duration-200' key={item._id}>
+            <div key={item._id} className='w-[270px] border-[1px] border-gray-400 rounded-md overflow-hidden hover:border-gray-800 duration-200' key={item._id}>
                 <Link href={{pathname: "/productPage", query:{_id: item?._id, category: item?.category}}}>
                   <Image 
                       src={item?.image} 

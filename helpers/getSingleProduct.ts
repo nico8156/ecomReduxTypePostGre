@@ -17,7 +17,7 @@ interface Item {
 
 export const getSingleProduct = async(_id: number, category: string | string[] | undefined) => {
 
-    console.log("fnGetSingleProduct",category)
+    
     let categoryString = category?.toString();
 
     const categoryProduct = categoryString?.replace(" ", "");

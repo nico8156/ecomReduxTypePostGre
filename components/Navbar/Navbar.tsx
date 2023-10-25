@@ -2,18 +2,23 @@ import Link from 'next/link'
 import React from 'react'
 import LogCartButton from '../LogCartButton/LogCartButton'
 
-const links = [
+interface Link {
+  title: string
+  href: string
+}
+
+const links: Link[] = [
   {
     title: "Phone",
-    href: "/store"
+    href: "/store/phone"
   },
   {
     title: "Phone Case",
-    href: "/phonecase"
+    href: "/store/phoneCase"
   },
   {
     title: "Watch",
-    href: "/watch"
+    href: "/store/watch"
   }
 ];
 

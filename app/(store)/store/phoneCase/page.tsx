@@ -1,14 +1,11 @@
 import Products from '@/components/products/Products';
 import { getData } from '@/helpers/getProdctsByCategory';
-import { Product } from '@/types/globalTypes';
-import React from 'react'
-
-
+import { Item } from '@/types/globalTypes';
 
 const PhoneCase = async() => {
 
-  const category = "phonecase"
-  const products = await getData(category);
+  const category: string = "phonecase"
+  const products: Item[] = await getData(category);
   return (
     <div className="flex flex-wrap gap-5 justify-evenly overflow-y-auto no-scrollbar">
        <Products products={products}/>
