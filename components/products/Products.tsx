@@ -21,16 +21,18 @@ interface Item {
 
 const Products = ({products}:{products: any}) => {
 
-  const userName = useSelector((state: User) => state.rootreducer.user?.currentUser?.username);
+  const currentUser = useSelector((state: User) => state.rootreducer.user?.currentUser);
+  const userName = currentUser?.username;
+
 
   const dispatch = useDispatch()
 
   return (
     <>
         <h1 className='mt-10 text-3xl'>Choose your next Tech-Product here {userName && <span className='text-5xl text-green-300'>{userName}</span>}</h1>
-        <div className='max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 py-10'>
+        <div className='max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 py-10'>
         {products.map((item: Item)=>(
-            <div className='border-[1px] border-gray-400 rounded-md overflow-hidden hover:border-gray-800 duration-200' key={item._id}>
+            <div className='w-[270px] border-[1px] border-gray-400 rounded-md overflow-hidden hover:border-gray-800 duration-200' key={item._id}>
                 <Link href={{pathname: "/productPage", query:{_id: item?._id, category: item?.category}}}>
                   <Image 
                       src={item?.image} 
@@ -50,24 +52,26 @@ const Products = ({products}:{products: any}) => {
                   </div>
                 </Link>
                 <div className='flex items-center justify-between p-3'>
-                    <button 
+                    <Link 
+                    href={{pathname: "/productPage", query:{_id: item?._id, category: item?.category}}}
                     className='px-3 py-1 border-[1px] border-green-300 hover:text-green-300 rounded-md duration-200'>
-                    More info +
-                    </button>
+                        More info +
+                    </Link>
                     <button 
-                    className='bg-gradient-to-r from-lime-200 to-green-300 px-3 py-1 rounded-md cursor-pointer hover:scale-105 duration-200'
-                    onClick={()=> dispatch(addToCart({
-                    id: item._id,
-                    title:item.title,
-                    price:item.price,
-                    description: item.description,
-                    category: item.category,
-                    image: item.image,
-                    brand: item.brand,
-                    quantity: 1
-                    }))}
+                        disabled={currentUser===null}
+                        className='bg-gradient-to-r from-lime-200 to-green-300 px-3 py-1 rounded-md cursor-pointer hover:scale-105 duration-200 disabled:opacity-50 disabled:hover:scale-100'
+                        onClick={()=> dispatch(addToCart({
+                            id: item._id,
+                            title:item.title,
+                            price:item.price,
+                            description: item.description,
+                            category: item.category,
+                            image: item.image,
+                            brand: item.brand,
+                            quantity: 1
+                        }))}
                     >
-                    Add To Cart
+                        Add To Cart
                     </button>
                 </div>
             </div>

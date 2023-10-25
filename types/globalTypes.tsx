@@ -14,8 +14,9 @@ export interface Product{
 
 export interface User {
     rootreducer: any
-    username: string,
+    username: string
     email: string
+    photo?: string
 }
 
 export interface ProductSlice {

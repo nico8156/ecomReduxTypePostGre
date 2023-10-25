@@ -10,8 +10,8 @@ datasource db {
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
-  username  String  @unique
+  username  String   @unique
   createdAt DateTime @default(now())
   password  String
+  photo     String?  @default("undefined")
 }
-

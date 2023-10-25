@@ -25,22 +25,33 @@ const Register = () => {
 
 
   const onSubmit = async(data: FormData) => {
-    
-    const response = await fetch('/api/user/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: data.username,
-        email: data.email,
-        password: data.password
+
+    try {
+
+      const response = await fetch('/api/user/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: data.username,
+          email: data.email,
+          password: data.password
+        })
       })
-    })
-    if(response.status === 201){
-      router.push('/login')
+      if(response.status === 201){
+        router.push('/login')
+      }
+      reset();
+      return true;
+      
+    } catch (error) {
+
+      console.error(error)
+      
     }
-    reset();
+    
+    
 
   }
 
@@ -49,11 +60,12 @@ const Register = () => {
       <h1 className='font-bold text-2xl text-red-400'>
         Register
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col mt-5 p-10 border rounded-xl border-green-300 w-1/3'>
-        <label className='mb-2 font-bold'>
+      <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col mt-5 p-10 border rounded-xl border-green-300 xl:w-1/2 w-2/3'>
+        <label htmlFor='username' className='mb-2 font-bold'>
           Username:
         </label>
         <input 
+          id='username'
           autoComplete="off"
           className='focus:outline-none px-2 py-2 border rounded-lg border-gray-200' 
           placeholder='Enter your Username' 
@@ -61,10 +73,11 @@ const Register = () => {
           {...register("username", {required: "Username is required"})}
           />
           {errors.username && (<p className='text-red-500'>{`${errors.username.message}`}</p>)}
-        <label className='mb-2 mt-1 font-bold'>
+        <label htmlFor='email' className='mb-2 mt-1 font-bold'>
           Email:
         </label>
         <input 
+          id='email'
           autoComplete="off"
           className='focus:outline-none px-2 py-2 border rounded-lg border-gray-200' 
           placeholder='Enter your Email'
@@ -72,10 +85,11 @@ const Register = () => {
           {...register("email", {required: "Email is required"})}
         />
         {errors.email && (<p className='text-red-500'>{`${errors.email.message}`}</p>)}
-        <label className='mb-2 mt-1 font-bold'>
+        <label htmlFor='password' className='mb-2 mt-1 font-bold'>
           Password:
         </label>
         <input 
+          id='password'
           autoComplete="off"
           className='focus:outline-none px-2 py-2 border rounded-lg border-gray-200' 
           placeholder='Enter your Password' 
@@ -87,7 +101,7 @@ const Register = () => {
           }})}
         />
         {errors.password && (<p className='text-red-500'>{`${errors.password.message}`}</p>)}
-        <label className='mb-2 mt-1 font-bold' htmlFor="confpassword">
+        <label  className='mb-2 mt-1 font-bold' htmlFor="confpassword">
           Confirm your Password:
         </label>
         <input 

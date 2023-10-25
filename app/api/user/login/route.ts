@@ -14,16 +14,17 @@ export async function POST(req:Request) {
             },
           })
 
-        console.log(userByEmail)
+        
         if(!userByEmail){
             return NextResponse.json({user: null, message: "This is not a valid email"})
         }
 
         const isValidPassword = await bcrypt.compare(password, userByEmail.password);
-        console.log(isValidPassword);
+        
         if(!isValidPassword){
             return NextResponse.json({user: null, message: "This password is not valid"})
         }
+        const { password: passwordUser, createdAt, id, ...rest } = userByEmail
 
         return NextResponse.json({userByEmail, message: "User Authenticated!"}, {status: 201} )
 

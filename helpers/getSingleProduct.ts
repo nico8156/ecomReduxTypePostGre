@@ -16,8 +16,13 @@ interface Item {
   }
 
 export const getSingleProduct = async(_id: number, category: string | string[] | undefined) => {
+
+    console.log("fnGetSingleProduct",category)
+    let categoryString = category?.toString();
+
+    const categoryProduct = categoryString?.replace(" ", "");
     
-    const products = await getData(category);
+    const products = await getData(categoryProduct);
     
     const singleProduct = await products.find((product:Item ) => product._id === _id);
     
