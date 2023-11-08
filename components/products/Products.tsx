@@ -6,7 +6,7 @@ import { addToCart } from '@/redux/slice/features/productsSlice'
 import Link from 'next/link'
 import { User } from '@/types/globalTypes'
 
-interface Item {
+type Item = {
     brand: string;
     category: string;
     description: string;
@@ -19,7 +19,11 @@ interface Item {
     quantity: number;
   }
 
-const Products = ({products}:{products: Item[]}) => {
+  interface ProductsProps {
+    products: Item[];
+  }
+
+const Products: React.FC<ProductsProps> = ({products}) => {
 
   const currentUser = useSelector((state: User) => state.rootreducer.user?.currentUser);
   const userName = currentUser?.username;

@@ -1,6 +1,6 @@
 "use client"
 
-const ButtonTocart = () => {
+const ButtonTocart: React.FC<{ children: string }> = ({ children }) =>{
     
   return (
     <div>

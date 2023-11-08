@@ -3,18 +3,18 @@ import { renderWithProviders } from '../../../utils/test/test.utils'
 
 import LogCartButton from '../LogCartButton'
 
-const mockedProducts = [{
-    brand: "string",
-    category: "string",
-    description: "string",
-    image: "/test",
-    isNew: "boolean",
-    oldPrice: "number",
-    price: "number",
-    title: "string",
-    _id: "number",
-    quantity: "number",
-}]
+// const mockedProducts = [{
+//     brand: "string",
+//     category: "string",
+//     description: "string",
+//     image: "/test",
+//     isNew: "boolean",
+//     oldPrice: "number",
+//     price: "number",
+//     title: "string",
+//     _id: "number",
+//     quantity: "number",
+// }]
 
 describe('LogCartButton', () => {
     it('Should render "Login" if user null', () => {

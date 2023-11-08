@@ -8,7 +8,7 @@ import { logoutUser } from '@/redux/slice/features/userSlice';
 import { clearCart } from '@/redux/slice/features/productsSlice';
 import { LogOut } from 'lucide-react';
 
-const LogOutButton = () => {
+const LogOutButton: React.FC = () => {
 
   const dispatch = useDispatch();
   const router = useRouter();

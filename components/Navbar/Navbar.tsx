@@ -22,7 +22,7 @@ const links: Link[] = [
   }
 ];
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
 
 
   return (

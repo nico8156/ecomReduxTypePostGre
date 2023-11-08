@@ -1,4 +1,3 @@
-import { Product } from "@/types/globalTypes";
 import { getData } from "./getProdctsByCategory";
 
 
@@ -15,7 +14,7 @@ interface Item {
     quantity: number;
   }
 
-export const getSingleProduct = async(_id: number, category: string | string[] | undefined) => {
+export const getSingleProduct = async(_id: number, category: string | string[] | undefined): Promise<any> => {
 
     
     let categoryString = category?.toString();

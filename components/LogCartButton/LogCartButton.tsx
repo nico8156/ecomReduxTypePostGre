@@ -8,7 +8,7 @@ import { ShoppingCart } from "lucide-react"
 import { Product, User } from '@/types/globalTypes';
 import LogOutButton from '../LogOutButton/LogOutButton';
 
-const LogCartButton = () => {
+const LogCartButton: React.FC = () => {
 
     const user = useSelector((state: User) => state.rootreducer.user.currentUser);
     const cartProducts = useSelector((state: Product[]) => state.rootreducer.products?.productData);

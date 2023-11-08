@@ -1,17 +1,19 @@
 "use client"
+
 import { Minus, Plus, Trash } from 'lucide-react';
 import Image from 'next/image';
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { decreaseQuantity, increaseQuantity, removeFromCart } from './../redux/slice/features/productsSlice'
 import { Product } from '@/types/globalTypes';
 
-const ProductCart = ({productsCart}:any) => {
+interface ProductCartProps {
+    productsCart: Product[]
+}
+
+const ProductCart: React.FC<ProductCartProps> = ({productsCart}) => {
 
     const dispatch = useDispatch();
     
-
-    // const { id, title, description, brand, price, quantity, image } = product;
   return (
     <>
     

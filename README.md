@@ -1,3 +1,13 @@
+## Simple ECOM project 
+
+## Redux 
+manage state : user and product 
+## Typescript
+
+## PostGreSQL as DB 
+
+## TESTING with Jest and React Testing Library
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

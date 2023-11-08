@@ -1,16 +1,4 @@
 import '@testing-library/jest-dom'
+import fetchMock from "jest-fetch-mock";
 
-
-
-
-// import 'whatwg-fetch'
-
-// import { server } from '@/mocks/server'
-
-
-// beforeAll(() => server.listen())
-
-// afterEach(() => server.resetHandlers())
-
-// afterAll(() => server.clode())
-
+fetchMock.enableMocks();

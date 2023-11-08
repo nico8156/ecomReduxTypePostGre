@@ -1,4 +1,4 @@
-export const getData = async(category: string | string[] | undefined) => {
+export const getData = async(category: string | string[] | undefined): Promise<any> => {
     try {
         const res = await fetch(`https://jsonserver.reactbd.com/${category}`);
         const data = await res.json();
